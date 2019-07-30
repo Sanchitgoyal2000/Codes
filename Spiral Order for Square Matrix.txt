@@ -1,0 +1,74 @@
+import java.lang.*;
+import java.io.*;
+class GFG
+{
+	public static void main (String[] args) {
+	int t;
+	Scanner ob=new Scanner(System.in);
+	t=ob.nextInt();
+	try
+	{
+	while(t-->0)
+	{
+	    int n,m;
+	    n=ob.nextInt();
+	    m=ob.nextInt();
+	    int a[][]=new int[n][m],i,j;
+	    for(i=0;i<n;i++)
+	    {
+	        for(j=0;j<m;j++)
+	        {
+	            a[i][j]=ob.nextInt();
+	        }
+	    }
+	    int k,p=0,q=n-1,r=n-1,s=0;
+	    int v;
+	    if(n%2==0)
+	    v=n/2;
+	    else
+	    v=(n/2)+1;
+	    j=0;
+	     q=m-1-j;r=n-1-j;s=j;p=j;
+	     int d=0;
+	    while(p<=r&&s<=q)
+	    {
+	    for(i=j;i<m-j;i++)
+	    {
+	      System.out.print(a[p][i]+" ");
+	      d++;
+	    }
+	      p++;
+	      if(d>=m*n)
+	      break;
+	    for(i=p;i<n-j;i++)
+	    {
+	      System.out.print(a[i][q]+" ");
+	      d++;
+	    }
+	      q--;
+	     if(d>=m*n)
+	      break;
+	   for(i=q;i>=j;i--)
+	   {
+	      System.out.print(a[r][i]+" ");
+	      d++;
+	   }
+	      r--;
+	      if(d>=m*n)
+	      break;
+	   for(i=r;i>j;i--)
+	   {
+	      System.out.print(a[i][s]+" ");
+	      d++;
+	   }
+	      s++;
+	      j++;
+	      if(d>=m*n)
+	      break;
+	    }
+	    System.out.println();
+	}
+	}
+	catch(Exception e){}
+	}
+}
